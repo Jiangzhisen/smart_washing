@@ -1,0 +1,49 @@
+#area{
+    position: fixed;
+    top: 17%;left: 0;
+    width: 100%;height: 90%;
+    overflow: auto;
+    margin: auto;
+}
+
+.model{
+    background-color: rgba(255, 255, 255, 0.753);
+    width: 80%; height: auto;
+    margin: auto;
+    margin-bottom: 15%;
+    border-radius: 30px;
+    padding: 4%;
+    align-items: center;
+    text-align: center;
+}
+
+.model svg{
+    width: 25%;
+    margin: 18%;
+    animation: success 1.5s,size 1s;
+}
+
+#map_area{
+    height: 70%;
+    overflow: hidden;
+}
+
+/**定位**/
+
+#map_area button{
+    background-color: transparent;
+    border: none;
+    width: 20%;
+    position: absolute;
+    right: 15%;top: 70%;
+}
+
+#gps{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+#btn_gps:active{
+    transform: scale(1.2);
+}

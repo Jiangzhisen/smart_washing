@@ -1,0 +1,52 @@
+#area{
+    position: fixed;
+    top: 20%;left: 0;
+    width: 100%;height: 78%;
+    overflow: auto;
+    margin: auto;
+}
+
+.model{
+    background-color: rgba(255, 255, 255, 0.753);
+    width: 90%; height: auto;
+    margin: auto;
+    margin-bottom: 10%;
+    border-radius: 30px;
+    padding: 5%;
+    align-items: center;
+    text-align: center;
+}
+
+.model svg{
+    width: 25%;
+    margin: 18%;
+    animation: success 1.5s,size 1s;
+}
+
+#time_area{
+    text-align: center;
+}
+
+#success_area{
+    height: 70%;
+}
+
+.model h1{
+    line-height: 230%;
+
+}
+
+/***按鈕***/
+
+#btn_purchase_area{
+    position: fixed;
+    width: 70%; top: 80%;
+    margin: 0 15% 0 15%;
+}
+#btn_purchase_area input{
+    width: 30%;
+    margin: 0 35% 0 35%;
+}
+
+
+

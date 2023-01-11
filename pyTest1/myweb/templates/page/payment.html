@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <style>
+      @import url(../../static/css/payment.css);
+      @import url(../../static/css/main.css);
+      @import url(../../static/css/animation.css);
+  </style>
+    <title>AI智慧喜</title>
+</head>
+<body>
+  <main>
+    <!--navbar-->
+    <nav class="navbar navbar-dark bg-dark" aria-label="Dark offcanvas navbar">
+      <div class="container-fluid">
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <a class="navbar-brand" href="#" id="navbar_brandTitle">AI智慧喜</a>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark" id="btn_msg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16" id="msg">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+          </svg>
+        </button> -->
+        <!--訊息通知區塊-->
+        <!-- <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+          <div class="offcanvas-header" id="msg_offcanvas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16" id="msg">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+            </svg>
+            <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">訊息通知</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div id="msg_area"> -->
+            <!--訊息-->
+            <!-- <div class="msg">
+              <div class="msg_top">
+                <p class="msg_date">2022/11/13 &emsp;</p>
+                <p class="msg_time">16：00</p>
+              </div>
+              <div class="msg_bottom">
+                <p class="msg_txt">
+                  由於店內設備故障問題，因此您的訂單進度將會延遲!!
+                </p>
+              </div>
+            </div>
+          
+            <div class="msg">
+              <div class="msg_top">
+                <p class="msg_date">2022/11/11 &emsp;</p>
+                <p class="msg_time">11：00</p>
+              </div>
+              <div class="msg_bottom">
+                <p class="msg_txt">
+                  我們在處理您的衣物時，發現襪子和內衣褲有破損狀況!
+                </p>
+                <a href="../page/purchase.html" class="msg_link">
+                  <p>點我至加購商品頁面</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div> -->
+        <!--菜單-->
+        <!-- <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+          <div class="offcanvas-header">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-label="Close">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">AI智慧喜</a>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="btn_menu"></button>
+          </div>
+          <ul class="navbar-nav" id="menu_item_area">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../index.html">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="teaching.html">新手教學</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="problemreturns.html">問題回報</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="payment.html">付款方式</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="privacypolicy.html">服務條款</a>
+            </li> -->
+            <!--登出-->
+            <!-- <hr>
+            <li class="nav-item ">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                登出
+              </button>
+            </li> -->
+            <!--登出結束-->
+          <!-- </ul>
+        </div> -->
+      </div>
+    </nav>
+    <!-- 登出Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">帳號登出</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            是否確定登出？
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary">確認</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="page_title_area" >
+      <svg xmlns="http://www.w3.org/2000/svg" onclick="history.back()"  class="bi bi-caret-left" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+      </svg>
+      <div id="page_title" >
+          付款方式
+      </div>
+    </section>
+
+    <div class="bg_water">
+      <img src="../../static/img/water1.png" alt="" id="bg_water1">
+      <img src="../../static/img/water2.png" alt="" id="bg_water2">
+    </div>
+
+    <!--內容-->
+    <div class="card_area container">
+      <h1>信用卡</h1>
+      <form action="" class="container">
+        <table>
+          <!-- <tr>
+            <td >
+              <input type="radio" name="card" id="card1" class="form-check-input card_radio">
+                  <label for="card1" class="form-check-label">&emsp;Visa</label>
+            </td>
+            <td valign="center">
+              <h3>*1611</h3>
+            </td>
+          </tr>
+          <tr>
+            <td >
+              <input type="radio" name="card" id="card2" class="form-check-input card_radio">
+                  <label for="card2" class="form-check-label">&emsp;中國信託</label>
+            </td>
+            <td >
+              <h3>*1524</h3>
+            </td>
+          </tr> -->
+          {% if cardinfo %}
+            {% for card in cardinfo %}
+
+            <tr>
+              {% comment %} <td >
+                <input type="radio" name="card" id="card1" class="form-check-input card_radio">
+                    <!-- <label for="card1" class="form-check-label">&emsp;Visa</label> -->
+              </td> {% endcomment %}
+              <td valign="center">
+                <h3>{{ card }}</h3>
+              </td>
+            </tr>
+
+            {% endfor %}
+          {% endif %}
+        </input>
+        </table>
+      </form>
+    </div>
+
+    <button id="add_card">
+      <div class="add_card_area container"  onclick="add()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+        </svg>
+        <p>新增信用卡</p>
+      </div>
+    </button>
+    
+    <dialog id="add">
+      <p>請輸入信用卡資訊</p>
+      <form method="get" action="/addcard/">
+        <table>
+          <tr class="add_tr">
+            <td>卡號：</td>
+            <td><input type="number" max="9999" id="myInput1" class="myInput" name="cardnum1"></td>
+            <td>-</td>
+            <td><input type="number" max="9999" id="myInput2" class="myInput" name="cardnum2"></td>
+            <td>-</td>
+            <td><input type="number" max="9999" id="myInput3" class="myInput" name="cardnum3"></td>
+            <td>-</td>
+            <td><input type="number" max="9999" id="myInput4" class="myInput" name="cardnum4"></td>
+          </tr>
+          <tr>
+            <td colspan="3">有效月/年：</td>
+            <td>
+              <select name="month" id="">
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+              </select>
+            </td>
+            <td>/</td>
+            <td>
+              <select name="year" id="">
+                <option value="">25</option>
+                <option value="">26</option>
+                <option value="">27</option>
+                <option value="">28</option>
+              </select>
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3">背面末三碼：</td>
+            <td><input type="number" max="999" id="myInput5" class="myInput" name="verify"></td>
+          </tr>
+          <tr>
+            <td colspan="4">
+              <input type="submit" value="確認" id="submit" class="btn_dialog">
+            </td>
+            <td colspan="3">
+              <input type="button" value="取消" id="close" class="btn_dialog">
+            </td>
+          </tr>
+        </table>
+      </form>
+      
+    </dialog>
+    <script>
+      /**彈窗**/
+      let btn=document.querySelector("#add_card");
+      let add=document.querySelector("#add");
+      btn.addEventListener("click", function(){
+        add.showModal();
+      })
+      /**輸入數字**/
+      myInput1.oninput = function () {
+          if (this.value.length > 4) {
+              this.value = this.value.slice(0,4); 
+          }
+      }
+      myInput2.oninput = function () {
+          if (this.value.length > 4) {
+              this.value = this.value.slice(0,4); 
+          }
+      }
+      myInput3.oninput = function () {
+          if (this.value.length > 4) {
+              this.value = this.value.slice(0,4); 
+          }
+      }
+      myInput4.oninput = function () {
+          if (this.value.length > 4) {
+              this.value = this.value.slice(0,4); 
+          }
+      }
+      myInput5.oninput = function () {
+          if (this.value.length > 3) {
+              this.value = this.value.slice(0,3); 
+          }
+      }
+      /**關閉**/
+      let close=document.querySelector("#close");
+      close.addEventListener("click", function(){
+        add.close();
+      })
+    </script>
+
+
+  </main>
+
+</body>
+</html>

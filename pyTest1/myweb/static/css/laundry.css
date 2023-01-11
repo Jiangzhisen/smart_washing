@@ -1,0 +1,39 @@
+#area{
+    position: fixed;
+    top: 16%;left: 0;
+    width: 100%;height: 78%;
+    overflow: auto;
+    margin: auto;
+}
+
+.model{
+    background-color: rgba(255, 255, 255, 0.753);
+    width: 90%; height: auto;
+    margin: auto;
+    margin-bottom: 5%;
+    border-radius: 30px;
+    display: flex;
+    padding: 3.5%;
+    align-items: center;
+}
+
+.model table{
+    width: 100%;
+    font-size: 130%;
+}
+
+
+
+/***按鈕***/
+
+#btn_purchase_area{
+    position: fixed;
+    width: 70%; top: 92%;
+    margin: 0 15% 0 15%;
+}
+
+#purchase_confirm{
+    float: right;
+    animation: border 1s infinite;
+}
+

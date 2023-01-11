@@ -1,0 +1,39 @@
+html{
+    scroll-behavior: smooth;
+}
+
+#step_area{
+    position: fixed;
+    top: 17%;left: 0;
+    width: 100%;height: 80%;
+    overflow: auto;
+    
+}
+
+.step{
+    margin: auto;
+    width: 80%;
+    align-items: center;
+    padding: auto;
+    margin-bottom: 10%;
+}
+
+.step img{
+    width: 80%;
+    border-radius: 10px;
+    border: white 2px solid;
+    margin: 5% 10% 0 10%;
+}
+
+.step_txt p{
+    color: white;
+}
+
+.step_txt h3{
+    background-color: rgba(255, 255, 255, 0.849);
+    border-radius: 20px;
+    width: 37%;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+}

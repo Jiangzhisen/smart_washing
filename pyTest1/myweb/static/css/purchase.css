@@ -1,0 +1,97 @@
+.purchase_img{
+    overflow: hidden;
+    width: 50%;height: 50%;
+    border-radius: 10px;
+}
+
+.purchase_img img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+#purchase_area{
+    position: fixed;
+    top: 17%;left: 0;
+    width: 100%;height: 66%;
+    overflow: auto;
+    margin: auto;
+}
+
+.purchase{
+    background-color: rgba(255, 255, 255, 0.753);
+    width: 94%; height: auto;
+    margin: auto;
+    margin-bottom: 5%;
+    border-radius: 30px;
+    display: flex;
+    padding: 5%;
+    align-items: center;
+}
+.purchase_txt{
+    margin-left: 5%;
+    width: 60%;
+}
+.purchase_txt table{
+    font-size: 100%;
+    margin: auto;
+}
+.purchase_txt table td{
+    height: 30px;
+}
+.purchase_name{
+    font-size: 130%;
+    letter-spacing: 8px;
+}
+
+/**商品數量**/
+.qty {
+    width: 40px;
+    height: 35px;
+    text-align: center;
+    border: 0;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+  
+  
+input.qtyplus {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #212529;
+    color: white;
+    font-size: 110%;
+}
+  
+input.qtyminus {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #212529;
+    color: white;
+    font-size: 110%;
+}
+
+/***總金額***/
+#price_area{
+    position: fixed; top: 85%;
+    color: white;
+    width: 70%;
+    display: inline-flex;
+    margin: 0 15% 0 15%;
+}
+
+
+/***按鈕***/
+
+#btn_purchase_area{
+    position: fixed;
+    width: 70%; top: 92%;
+    margin: 0 15% 0 15%;
+}
+
+#purchase_confirm{
+    float: right;
+    animation: border 1s infinite;
+}

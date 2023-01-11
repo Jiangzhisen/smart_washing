@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <style>
+      @import url(../../static/css/order_tracking.css);
+      @import url(../../static/css/main.css);
+      @import url(../../static/css/animation.css);
+  </style>
+    <title>AI智慧喜</title>
+</head>
+<body>
+  <main>
+    <!--navbar-->
+    <nav class="navbar navbar-dark bg-dark" aria-label="Dark offcanvas navbar">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/index/" id="navbar_brandTitle">AI智慧喜</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark" id="btn_msg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16" id="msg">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+          </svg>
+        </button>
+        <!--訊息通知區塊-->
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+          <div class="offcanvas-header" id="msg_offcanvas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16" id="msg">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+            </svg>
+            <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">訊息通知</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div id="msg_area">
+            <!--訊息-->
+            {% if noticelist %}
+            {% for data in noticelist %}
+            <div class="msg">
+              <div class="msg_top">
+                <p class="msg_date">{{ data.NTIME }} &emsp;</p>
+              </div>
+              <div class="msg_bottom">
+                <p class="msg_txt">
+                  {{ data.NCONTENT }}
+                </p>
+                <a href="/purchase2/" class="msg_link">
+                  <p>{{ data.NLINK }}</p>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+
+        </div>
+        <!--菜單-->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+          <div class="offcanvas-header">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-label="Close">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="/index/">AI智慧喜</a>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="btn_menu"></button>
+          </div>
+          <ul class="navbar-nav" id="menu_item_area">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/index/">首頁</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/teaching/">新手教學</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/problemreturns/">問題回報</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/payment1/">付款方式</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/privacypolicy2/">服務條款</a>
+            </li>
+            <!--登出-->
+            <hr>
+            <li class="nav-item ">
+              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                登出
+              </button>
+            </li>
+            <!--登出結束-->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- 登出Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">帳號登出</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            是否確定登出？
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='/logout/'">確認</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="page_title_area" >
+      <svg xmlns="http://www.w3.org/2000/svg" onclick="history.back()"  class="bi bi-caret-left" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+      </svg>
+      <div id="page_title" >
+        訂單追蹤
+      </div>
+    </section>
+
+    <div class="bg_water">
+      <img src="../../static/img/water1.png" alt="" id="bg_water1">
+      <img src="../../static/img/water2.png" alt="" id="bg_water2">
+    </div>
+
+    <div id="area" class="container">
+      <!--內容-->
+      <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+        <div class="carousel-indicators" id="carousel_button_bottom">
+          {% if ordernum %}
+          {% for info in ordernum %}
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to={{ info.a1 }} class="active" aria-current="true" aria-label={{ info.b1 }}></button>
+          {% endfor %}
+          {% endif %}
+        </div>
+
+        <!--訂單1-->
+        <div class="carousel-inner">
+          {% if handle %}
+          {% for data in handle %}
+          <div class="carousel-item active">
+            <div class="model" id="time_area">
+              <h2>預計完成時間</h2>
+              <h2>{{ data.PFTIME1 }}</h2>
+            </div>    
+        
+            <div class="model" id="order_detail">
+              <button id="{{ data.JS4 }}">
+                <img src="../../static/img/qr-code.png" alt="">
+              </button>
+              <table>
+                <tr>
+                  <td class="order_detail_td">訂單編號：</td>
+                  <td class="order_detail_td">{{ data.ORDID1 }}</td>
+                </tr>
+                <tr>
+                  <td class="order_detail_td">加購商品：</td>
+                  <td class="order_detail_td">{{ data.ADDITION1 }}</td>
+                </tr>
+                <tr>
+                  <td class="order_detail_td">衣服處理：</td>
+                  <td class="order_detail_td">{{ data.CLOTH1 }}</td>
+                </tr>
+                <tr>
+                  <td class="order_detail_td">鎖櫃編號：</td>
+                  <td class="order_detail_td">{{ data.LOCKID1 }}</td>
+                </tr>
+                <tr>
+                  <td class="order_detail_td">領取狀態：</td>
+                  <td class="order_detail_td">{{ data.COLSTATE1 }}</td>
+                </tr>
+              </table>
+            </div>  
+            <dialog id="{{ data.JS5 }}">
+              <h3>請至機台掃描QR Code</h3>
+              <img src="{{ data.QRCODE }}" alt="">
+              <br>
+              <!--按鈕-->
+              <section id="btn_purchase_area" class="container">
+                <input type="button" id="{{ data.JS6 }}" class="btn_dialog btn btn-lg btn-secondary" value="返回" >
+
+                {% if data.CLOTH1 == "未處理" %}
+                <form method="get" action="/washingconfirmation/">
+                <input type="hidden" id="custId" name="orderid" value={{ data.ORDID1 }}>
+                <input type="submit" class="btn btn-lg btn-outline-secondary" id="purchase_confirm" value="開始訂單">
+                </form>
+                {% endif %}
+
+                {% if data.COLSTATE1 == "可領取" %}
+                <form method="get" action="/finishconfirmation/">
+                <input type="hidden" id="custId" name="orderid" value={{ data.ORDID1 }}>
+                <input type="submit" class="btn btn-lg btn-outline-secondary" id="purchase_confirm" value="完成訂單">
+                </form>
+                {% endif %}
+
+              </section>
+            </dialog>
+          </div>
+          {% endfor %}
+          {% endif %}
+
+        {% if show == "yes" %} 
+        <div id="carousel_button_RL">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        {% endif %}
+        
+      </div >
+
+    </div>
+
+  </main>
+  <script>
+    {% if handle %}
+    {% for data in handle %}
+    /**彈窗**/
+    let {{ data.JS7 }}=document.querySelector("{{ data.JS1 }}");
+    let {{ data.JS5 }}=document.querySelector("{{ data.JS2 }}");
+    {{ data.JS7 }}.addEventListener("click", function(){
+      {{ data.JS5 }}.showModal();
+    })
+
+    /**關閉**/
+    let {{ data.JS6 }}=document.querySelector("{{ data.JS3 }}");
+    {{ data.JS6 }}.addEventListener("click", function(){
+      {{ data.JS5 }}.close();
+    })
+
+    {% endfor %}
+    {% endif %}
+  </script>
+
+  {% comment %} <script>
+    /**彈窗**/
+    let btn2=document.querySelector("#QR2");
+    let QR_show2=document.querySelector("#QR_show2");
+    btn2.addEventListener("click", function(){
+      QR_show2.showModal();
+    })
+
+    /**關閉**/
+    let close2=document.querySelector("#close2");
+    close2.addEventListener("click", function(){
+      QR_show2.close();
+    })
+  </script>
+
+  <script>
+    /**彈窗**/
+    let btn3=document.querySelector("#QR3");
+    let QR_show3=document.querySelector("#QR_show3");
+    btn3.addEventListener("click", function(){
+      QR_show3.showModal();
+    })
+
+    /**關閉**/
+    let close3=document.querySelector("#close3");
+    close3.addEventListener("click", function(){
+      QR_show3.close();
+    })
+  </script> {% endcomment %}
+
+
+</body>
+</html>

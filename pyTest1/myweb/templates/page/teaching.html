@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- CSS only -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+      <style>
+        @import url(../../static/css/teaching.css);
+        @import url(../../static/css/main.css);
+        @import url(../../static/css/animation.css);
+      </style>
+      <title>AI智慧喜</title>
+  </head>
+  <body>
+    <main>
+        <!--navbar-->
+        <nav class="navbar navbar-dark bg-dark" aria-label="Dark offcanvas navbar">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="/index/" id="navbar_brandTitle">AI智慧喜</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark" id="btn_msg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16" id="msg">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+              </svg>
+            </button>
+            <!--訊息通知區塊-->
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+              <div class="offcanvas-header" id="msg_offcanvas">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16" id="msg">
+                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+                </svg>
+                <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">訊息通知</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+    
+              <div id="msg_area">
+                <!--訊息-->
+                {% if noticelist %}
+                {% for data in noticelist %}
+                <div class="msg">
+                  <div class="msg_top">
+                    <p class="msg_date">{{ data.NTIME }} &emsp;</p>
+                  </div>
+                  <div class="msg_bottom">
+                    <p class="msg_txt">
+                      {{ data.NCONTENT }}
+                    </p>
+                    <a href="/purchase2/" class="msg_link">
+                      <p>{{ data.NLINK }}</p>
+                    </a>
+                  </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+              </div>
+    
+            </div>
+            <!--菜單-->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+              <div class="offcanvas-header">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-label="Close">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="/index/">AI智慧喜</a>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="btn_menu"></button>
+              </div>
+              <ul class="navbar-nav" id="menu_item_area">
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="/index/">首頁</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/teaching/">新手教學</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/problemreturns/">問題回報</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/payment1/">付款方式</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/privacypolicy2/">服務條款</a>
+                </li>
+                <!--登出-->
+                <hr>
+                <li class="nav-item ">
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    登出
+                  </button>
+                </li>
+                <!--登出結束-->
+              </ul>
+            </div>
+    
+          </div>
+        </nav>
+        <!-- 登出Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">帳號登出</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                是否確定登出？
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/logout/'">確認</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section id="page_title_area" >
+          <svg xmlns="http://www.w3.org/2000/svg" onclick="history.back()"  class="bi bi-caret-left" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+          </svg>
+          <div id="page_title">
+              新手教學
+          </div>
+        </section>
+        <!--內容-->
+        <div id="step_area" class="container">
+          <!--紀錄-->
+
+<div class="step">
+              <div class="step_txt">
+                <h3>Step 1</h3>
+                <p>進入首頁後，點擊開始洗衣</p>
+              </div>
+              <img src="../../static/img/APPstep1.png" alt="">
+          </div>
+
+          <div class="step">
+            <div class="step_txt">
+              <h3>Step 2</h3>
+              <p>由上至下依序選擇洗衣模式，按下儲存即可存下選擇之各項模式，按下一步至下一步驟</p>
+            </div>
+            <img src="../../static/img/APPstep2.png" alt="">
+          </div>
+
+          <div class="step">
+            <div class="step_txt">
+              <h3>Step 3</h3>
+              <p>這個頁面提供襪子加購的服務，在依序選擇襪子數量、尺寸以及確認總金額後便可按下確認進入下一步驟</p>
+            </div>
+            <img src="../../static/img/APPstep3.png" alt="">
+          </div>
+
+          <div class="step">
+            <div class="step_txt">
+              <h3>Step 4</h3>
+              <p>進入訂單確認階段，在確認訂單相關資訊以及選擇領取時間後按下完成，跳至宣告訂單完成之頁面即完成送洗</p>
+            </div>
+            <img src="../../static/img/APPstep4.png" alt="">
+            <img src="../../static/img/APPstep5.png" alt="">
+          </div>
+
+          <div class="step">
+            <div class="step_txt">
+              <h3>訂單追蹤</h3>
+              <p>點擊首頁的訂單追蹤之後，可直接瀏覽目前送洗中的衣物之洗衣進度，點擊訂單編號右上角之圖樣便會跳出送洗與領取程序中所需之QRcode</p>
+            </div>
+            <img src="../../static/img/APPstep-traceorder1.png" alt="">
+            <img src="../../static/img/APPstep-traceorder2.png" alt="">
+            <img src="../../static/img/APPstep-traceorder3.png" alt="">
+          </div>
+
+          <div class="step">
+            <div class="step_txt">
+              <h3>紀錄瀏覽</h3>
+              <p>在首頁點擊歷史紀錄，可直接瀏覽已完成之洗衣訂單紀錄，根據日期及訂單編號尋找指定訂單</p>
+            </div>
+            <img src="../../static/img/APPstep-history1.png" alt="">
+            <img src="../../static/img/APPstep-history2.png" alt="">
+          </div>
+
+          <div class="step">
+            <div class="step_txt">
+              <h3>通知</h3>
+              <p>在首頁右上角點擊鈴鐺圖樣，可直接瀏覽訂單相關通知</p>
+            </div>
+            <img src="../../static/img/APPstep-notification1.png" alt="">
+            <img src="../../static/img/APPstep-notification2.png" alt="">
+          </div>
+        </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+#purchase_area{
+    position: fixed;
+    top: 17%;left: 0;
+    width: 100%;height: 65%;
+    overflow: auto;
+    margin: auto;
+}
+
+.purchase{
+    background-color: rgba(255, 255, 255, 0.753);
+    width: 80%; height: auto;
+    margin: auto;
+    margin-bottom: 5%;
+    border-radius: 30px;
+    display: flex;
+    padding: 5%;
+    align-items: center;
+}
+.purchase_txt{
+    width: 60%;
+}
+.purchase_txt table{
+    font-size: 80%;
+}
+
+.purchase_img{
+    overflow: hidden;
+    width: 40%;height: 40%;
+    border-radius: 10px;
+}
+
+.purchase_img img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+/***總金額***/
+#price_area{
+    position: fixed; top: 85%;
+    color: white;
+    width: 70%;
+    display: inline-flex;
+    margin: 0 15% 0 15%;
+}
+
+/***按鈕***/
+
+#btn_purchase_area{
+    position: fixed;
+    width: 70%; top: 92%;
+    margin: 0 15% 0 15%;
+}
+
+#purchase_confirm{
+    float: right;
+}

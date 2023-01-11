@@ -1,0 +1,142 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url('');
+    background-repeat:no-repeat;
+    background-size: 150% auto;
+    background-color: #212529;
+    font-family: 'Microsoft YaHei';
+}
+/**功能欄**/
+#navbar_brandTitle{
+    margin: auto;
+    font-size: 160%;
+}
+#btn_msg{
+    overflow: hidden;
+}
+#btn_msg:hover{
+    transform: scale(1.05);
+}
+#btn_msg svg:active{
+    color: white;
+}
+
+/***菜單***/
+#offcanvasTop{
+    background-color: #212529;
+}
+#offcanvasTopLabel{
+    color: white;
+}
+.nav-item{
+    text-align: center;
+    margin: 2%;
+    font-size: 120%;
+}
+hr{
+    margin: 5% 10% 5% 10%;
+    border-top: 1px solid slategray;
+}
+.nav-item button{
+    color: rgb(89, 102, 114);
+    font-size: 120%;
+    background-color: transparent;
+    border: none;
+}
+
+
+/***訊息區*****/
+#offcanvasNavbarDark{
+    align-items: center;
+}
+#msg_offcanvas{
+    position: fixed;
+    width: 396px;
+    z-index: 1;
+    background-color: #212529;
+}
+#offcanvasNavbarDark{
+    overflow: auto;
+}
+#msg_area{
+    width: 100%;
+    position: absolute;
+    top: 7%;
+
+}
+
+.msg{
+    background-color: rgba(255, 255, 255, 0.541);
+    border-radius: 20px;
+    padding: 20px;
+    color: black;
+    width: 86%;height: auto;
+    margin: 5% 7% 5% 7%;
+}
+.msg_top{
+    display: flex;
+}
+
+.msg_link {
+    color: rgb(0, 58, 167);
+    text-decoration:none;
+    font-size: 110%;
+    font-family: 'Microsoft YaHei';
+}
+
+/***頁面標題+返回***/
+
+#page_title_area{
+    margin: 3% 0 3% 0;
+    position: fixed;
+    top: 8%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+#page_title_area svg{
+    width: 10%;
+    color: white;
+    margin-left: -20%;
+}
+
+#page_title{
+    color: white;
+    font-size: 135%;
+    margin-left: 10%;
+}
+
+
+
+/**背景動畫**/
+
+.bg_water{
+    position: fixed;
+    z-index: -1;
+}
+
+#bg_water1{
+    position: absolute;
+    animation: to_left 15s infinite alternate,to_top 5s infinite alternate;
+}
+#bg_water2{
+    position: absolute;
+    opacity: 0.9;
+    animation: to_left 20s infinite alternate,to_top1 10s infinite alternate,flashing 8s infinite alternate;
+}
+
+#img_time{
+    position: fixed;
+    z-index: -1;
+    animation: rotate 5s infinite linear;
+    opacity: 0.5;
+    width: 80%;
+    top: 70%;left: 50%;
+}
+
