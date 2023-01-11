@@ -596,9 +596,9 @@ def payment_confirmation(request):
 
 def sendtoone(request, cdate, point):
     userid = request.session['user']
-    requests.post('我的ngrok網址/SA_ALL/news/history/', data = {
+    requests.post('http://15fc-111-251-51-154.ngrok.io/SA_ALL/news/history/', data = {
         "USER_PHONE": userid,   #userID
-        "APP_ID": "5",   #智慧喜＋之類的
+        "APP_ID": "第五組智慧喜",   #智慧喜＋之類的
         "DATE": cdate,
         "POINT": point,
         "DETAIL": "第五組智慧喜測試",   #隨便打
