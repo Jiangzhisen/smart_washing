@@ -158,9 +158,13 @@
       <img src="../static/img/washing-machine_index1.png" id="index_img2">
       <img src="../static/img/washing-machine_index.png" id="index_img1">
     </div>
-
-
   </main>
-
+  {% comment %} {% if messages %}
+  <script>
+    {% for msg in messages %}
+      alert('{{ msg.message }}');
+    {% endfor %}
+  </script>
+  {% endif %} {% endcomment %}
 </body>
 </html>

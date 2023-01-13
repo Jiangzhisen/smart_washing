@@ -156,10 +156,17 @@
                     <td align="center" valign="center">領取方式：</td>
                     <td align="center" valign="center">{{ collect }}</td>
                 </tr>
-                <tr>
+                {% comment %} <tr>
                     <td align="center" valign="center">加購商品：</td>
                     <td align="center" valign="center">{{ addition }}</td>
-                </tr>
+                </tr> {% endcomment %}
+                <tr>
+                  <td align="center" valign="center">加購商品：</td>
+                  <td align="center" valign="center" colspan="2">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="top" title="加購商品詳情" 
+                      data-bs-content="{{ addition }}">點我看詳情</button>
+                  </td>
+              </tr>
                 <tr>
                     <td align="center" valign="center">碳點數：</td>
                     <td align="center" valign="center">{{ point }}</td>
@@ -205,5 +212,20 @@
       </section>  
     </form>
   </main>
+  <!--加購商品詳情-->
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
+
+  {% if messages %}
+  <script>
+    {% for msg in messages %}
+      alert('{{ msg.message }}');
+    {% endfor %}
+  </script>
+  {% endif %}
 </body>
 </html>

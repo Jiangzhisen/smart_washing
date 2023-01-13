@@ -24,6 +24,7 @@
 
 .model table td{
     height: 30px;
+    padding: 5px 0 5px 0;
 }
 
 /***按鈕***/

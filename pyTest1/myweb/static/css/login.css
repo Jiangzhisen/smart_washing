@@ -55,29 +55,42 @@
 #btn_register_area{
     position: relative;
     width: 70%;
+    margin-bottom: 5%;
 }
 
 #register_confirm{
     float: right;
-    animation: border 1s infinite;
-    padding-bottom: 5%;
 }
 /***登入***/
 
 
 #line{
-    width: 50%;
-    margin: 15%;
-    animation: size_line 1s infinite alternate;
+    width: 35%;
     z-index: 9;
+}
+
+#line_area h2{
+    margin-bottom: 15%;
 }
 
 #line_area{
     text-align: center;
-    padding: 15% 10% 10% 10%;
-    background-color: rgba(255, 255, 255, 0.753);
-    margin-top: 20%;
-    
+    padding: 15% 0% 10% 0%;
+    background-color: rgba(255, 255, 255, 0);
+    align-items: center;
+    color: white;
+}
+
+.btn_login_area{
+    display: flex;
+    background-color: rgba(255, 255, 255,0.7);
+    padding: 5% 8% 5% 8%;
+    border-radius: 50px;
+    border: rgb(98, 98, 98) 5px solid;
+    animation: border 1s infinite;
+}
+.btn_login_area h4{
+    padding: 11% 0 0 10%;
 }
 
 #hand{

@@ -14,24 +14,35 @@
     margin-bottom: 10%;
     border-radius: 30px;
     display: flex;
-    padding: 3%;
+    padding: 5%;
 }
 .record_date{
     text-align: center;
     width: 26%; height: 56%;
-    margin: 12% 0 8% 2%;
+    padding: 19% 0 19% 0;
 }
 .record_date p{
     margin: 37% 0 37% 0;
     font-size: 110%;
+    height: 50%;
 }
 
 .record_txt{
-    margin: 4% 0 0 7%;
+    margin: 7% 0 0 9%;
     line-height: 50%;
     font-size: 90%;
+    height: 80%;
 }
 
-.record:hover{
-    transform: scale(1.05);
+
+.add_btn{
+    display: flex;
+    align-items: center;
+    padding: 5px 0 5px 0;
+}
+
+.add_btn button{
+    font-size: 70%;
+    position: relative;
+    top: -7px;
 }

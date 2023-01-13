@@ -64,6 +64,7 @@ class hstate(models.Model):   #訂單狀態追蹤資料表
     JS6 = models.CharField('js6', max_length=15, default='')
     JS7 = models.CharField('js7', max_length=15, default='')
     QRCODE = models.CharField('qrcode圖片路徑', max_length=50, default='')
+    ACTIVATE = models.CharField('activate', max_length=15, default='')
 
 
 class order(models.Model):   #訂單歷史資料表 (19個欄位)

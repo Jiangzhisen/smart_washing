@@ -136,7 +136,7 @@
         <div class="carousel-indicators" id="carousel_button_bottom">
           {% if ordernum %}
           {% for info in ordernum %}
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to={{ info.a1 }} class="active" aria-current="true" aria-label={{ info.b1 }}></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to={{ info.a1 }} class="{{ info.c1 }}" aria-current="true" aria-label={{ info.b1 }}></button>
           {% endfor %}
           {% endif %}
         </div>
@@ -145,14 +145,14 @@
         <div class="carousel-inner">
           {% if handle %}
           {% for data in handle %}
-          <div class="carousel-item active">
+          <div class="carousel-item {{ data.ACTIVATE }}">
             <div class="model" id="time_area">
               <h2>預計完成時間</h2>
               <h2>{{ data.PFTIME1 }}</h2>
             </div>    
         
             <div class="model" id="order_detail">
-              <button id="{{ data.JS4 }}">
+              <button id="{{ data.JS4 }}" class="QR_btn">
                 <img src="../../static/img/qr-code.png" alt="">
               </button>
               <table>
@@ -161,16 +161,19 @@
                   <td class="order_detail_td">{{ data.ORDID1 }}</td>
                 </tr>
                 <tr>
-                  <td class="order_detail_td">加購商品：</td>
-                  <td class="order_detail_td">{{ data.ADDITION1 }}</td>
-                </tr>
-                <tr>
                   <td class="order_detail_td">衣服處理：</td>
                   <td class="order_detail_td">{{ data.CLOTH1 }}</td>
                 </tr>
                 <tr>
                   <td class="order_detail_td">鎖櫃編號：</td>
                   <td class="order_detail_td">{{ data.LOCKID1 }}</td>
+                </tr>
+                <tr>
+                  <td class="order_detail_td">加購商品：</td>
+                  <td class="order_detail_td">
+                    <input type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="top" title="加購商品詳情" 
+                        data-bs-content="{{ data.ADDITION1 }}" id="btn_addgoos{{ data.ORDID1 }}" value="點我看詳情">
+                  </td>
                 </tr>
                 <tr>
                   <td class="order_detail_td">領取狀態：</td>
@@ -243,6 +246,21 @@
     {% endfor %}
     {% endif %}
   </script>
+
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
+
+  {% if messages %}
+  <script>
+    {% for msg in messages %}
+      alert('{{ msg.message }}');
+    {% endfor %}
+  </script>
+  {% endif %}
 
   {% comment %} <script>
     /**彈窗**/

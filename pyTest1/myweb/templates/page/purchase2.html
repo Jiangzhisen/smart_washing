@@ -160,15 +160,18 @@
                           <td colspan="2">50 / 雙</td>
                         </tr>
                         <tr>
-                            <td>
-                                <input type="button" value="-" class="qtyminus" field="quantity">
-                            </td>
+                          <td>
+                            <input type="button" class='minus' id="minus" value="-"></button>
+                          </td>
+                            {% comment %} <td colspan="2" align="center">
+                                <input type="number" name="quantity1" value="0" class="qty" style="width:50%;text-align:center;">
+                            </td> {% endcomment %}
                             <td colspan="2" align="center">
-                                <input type="number" name="quantity1" value="0" class="qty">
+                              <input type="number" span class='num' id="num" name="quantity1" value="0">
                             </td>
                             <td>
-                                <input type="button" value="+" class="qtyplus" field="quantity">
-                            </td>
+                              <input type="button" class='plus' id="plus" value="+"></button>
+                          </td>
                         </tr>
                       </table>
             </div>
@@ -206,15 +209,18 @@
                           <td colspan="2">50 / 雙</td>
                         </tr>
                         <tr>
-                            <td>
-                                <input type="button" value="-" class="qtyminus" field="quantity">
-                            </td>
+                          <td>
+                            <input type="button" class='minus' id="minus1" value="-"></button>
+                          </td>
+                            {% comment %} <td colspan="2" align="center">
+                                <input type="number" name="quantity1" value="0" class="qty" style="width:50%;text-align:center;">
+                            </td> {% endcomment %}
                             <td colspan="2" align="center">
-                                <input type="number" name="quantity2" value="0" class="qty">
+                              <input type="number" span class='num' id="num1" name="quantity2" value="0">
                             </td>
                             <td>
-                                <input type="button" value="+" class="qtyplus" field="quantity">
-                            </td>
+                              <input type="button" class='plus' id="plus1" value="+"></button>
+                          </td>
                         </tr>
                       </table>
             </div>
@@ -252,15 +258,18 @@
                           <td colspan="2">50 / 雙</td>
                         </tr>
                         <tr>
-                            <td>
-                                <input type="button" value="-" class="qtyminus" field="quantity">
-                            </td>
+                          <td>
+                            <input type="button" class='minus' id="minus2" value="-"></button>
+                          </td>
+                            {% comment %} <td colspan="2" align="center">
+                                <input type="number" name="quantity1" value="0" class="qty" style="width:50%;text-align:center;">
+                            </td> {% endcomment %}
                             <td colspan="2" align="center">
-                                <input type="number" name="quantity3" value="0" class="qty">
+                              <input type="number" span class='num' id="num2" name="quantity3" value="0">
                             </td>
                             <td>
-                                <input type="button" value="+" class="qtyplus" field="quantity">
-                            </td>
+                              <input type="button" class='plus' id="plus2" value="+"></button>
+                          </td>
                         </tr>
                       </table>
             </div>
@@ -281,5 +290,66 @@
   </div>
   </main>
   <!--數量-->
+  <script>
+    var minus = document.getElementById("minus");
+    var plus = document.getElementById("plus");
+    var num = document.getElementById("num");
+
+    plus.onclick=function(){
+      num.value = parseInt(num.value) + 1;
+    }
+    minus.onclick=function(){
+      if(num.value <= 0){
+        num.value = 0;
+      }
+      else{
+        num.value = parseInt(num.value) - 1 ;
+      }
+    }
+  </script>
+
+  <script>
+    var minus1 = document.getElementById("minus1");
+    var plus1 = document.getElementById("plus1");
+    var num1 = document.getElementById("num1");
+
+    plus1.onclick=function(){
+      num1.value = parseInt(num1.value) + 1;
+    }
+    minus1.onclick=function(){
+      if(num1.value <= 0){
+        num1.value = 0;
+      }
+      else{
+        num1.value = parseInt(num1.value) - 1 ;
+      }
+    }
+  </script>
+
+  <script>
+    var minus2 = document.getElementById("minus2");
+    var plus2 = document.getElementById("plus2");
+    var num2 = document.getElementById("num2");
+
+    plus2.onclick=function(){
+      num2.value = parseInt(num2.value) + 1;
+    }
+    minus2.onclick=function(){
+      if(num2.value <= 0){
+        num2.value = 0;
+      }
+      else{
+        num2.value = parseInt(num2.value) - 1 ;
+      }
+    }
+  </script>
+
+  {% if messages %}
+  <script>
+    {% for msg in messages %}
+      alert('{{ msg.message }}');
+    {% endfor %}
+  </script>
+  {% endif %}
 </body>
 </html>

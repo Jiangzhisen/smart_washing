@@ -45,32 +45,29 @@
 }
 
 /**商品數量**/
-.qty {
-    width: 40px;
+.num {
+    width: 70px;
     height: 35px;
     text-align: center;
-    border: 0;
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
+    font-size: 120%;
+    padding: 2px;
 }
   
   
-input.qtyplus {
+.plus {
     width: 30px;
     height: 30px;
-    border-radius: 30px;
-    background: #212529;
+    border-radius: 35px;
+    background: rgb(78, 78, 78);
     color: white;
-    font-size: 110%;
 }
   
-input.qtyminus {
+.minus {
     width: 30px;
     height: 30px;
-    border-radius: 30px;
-    background: #212529;
+    border-radius: 35px;
+    background: rgb(78, 78, 78);
     color: white;
-    font-size: 110%;
 }
 
 /***總金額***/
@@ -93,5 +90,4 @@ input.qtyminus {
 
 #purchase_confirm{
     float: right;
-    animation: border 1s infinite;
 }

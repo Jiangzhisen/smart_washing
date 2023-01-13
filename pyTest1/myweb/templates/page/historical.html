@@ -143,7 +143,13 @@
                 <p>洗滌模式：{{ data.WMODE }}</p>
                 <p>乾燥模式：{{ data.LMODE }}</p>
                 <p>摺衣模式：{{ data.FMODE }}</p>
-                <p>加購商品：{{ data.ADDITION }}&emsp;</p>
+                {% comment %} <p>加購商品：{{ data.ADDITION }}&emsp;</p> {% endcomment %}
+                <div class="add_btn">
+                  <p>加購商品：</p>
+                  <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="top" title="加購商品詳情" 
+                        data-bs-content="{{ data.ADDITION }}">點我看詳情</button>
+                </div>
+                {% comment %} <p> &nbsp;</p> {% endcomment %}
                 <p>碳點數：{{ data.GPOINT }}</p>
                 <p>碳稅：{{ data.C_AMOUNT }}</p>
                 <p>總金額：{{ data.AMOUNT }}</p>
@@ -156,6 +162,19 @@
 
 
   </main>
+  <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  </script>
 
+  {% if messages %}
+  <script>
+    {% for msg in messages %}
+      alert('{{ msg.message }}');
+    {% endfor %}
+  </script>
+  {% endif %}
 </body>
 </html>
