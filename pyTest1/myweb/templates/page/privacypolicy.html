@@ -196,13 +196,5 @@
     else document.form3.Submit.disabled = true;
     }
   </script>
-
-  {% if messages %}
-  <script>
-    {% for msg in messages %}
-      alert('{{ msg.message }}');
-    {% endfor %}
-  </script>
-  {% endif %}
 </body>
 </html>

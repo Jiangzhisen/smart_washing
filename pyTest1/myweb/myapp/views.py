@@ -14,7 +14,7 @@ import qrcode
 #進入view
 #建立SACCngrok及自己的serverngrok
 SACCngrok = "https://10eb-1-34-54-152.jp.ngrok.io"
-serverngrok = "https://88b7-2402-7500-56b-3d92-654b-ebb5-92ad-470e.jp.ngrok.io"
+serverngrok = "https://637d-2402-7500-568-6ca1-3dcc-73ae-96b-81a4.jp.ngrok.io"
 
 #第一步 登入介面的view，每次重整都會run一次
 def login2_view(request):
@@ -127,7 +127,6 @@ def privacy_policy(request):
         return render(request, 'page/privacypolicy.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def privacy_policy2(request):
@@ -138,7 +137,6 @@ def privacy_policy2(request):
         return render(request, 'page/privacypolicy2.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def card(request):
@@ -189,7 +187,6 @@ def card(request):
         return render(request, 'page/payment.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -221,7 +218,6 @@ def add_card(request):
         return redirect('/index/', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def card1(request):
@@ -268,7 +264,6 @@ def card1(request):
         return render(request, 'page/payment1.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -323,7 +318,6 @@ def laundry(request):
         return render(request, 'page/laundry.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def purchase(request):
@@ -340,7 +334,6 @@ def purchase(request):
         return render(request, 'page/purchase.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def order_confirmation(request):
@@ -398,22 +391,33 @@ def order_confirmation(request):
         else:
             adp1 = addpur.objects.filter(APNAME = pname1, APSIZE = size1, APCOLOR = color1).values()
             pmoney1 = int(adp1[0]['APPRICE'])*quantity1
-            allpname = ""
-            allpname += color1+pname1+size1+"x"+str(quantity1)+","
+            if allpname == "無":
+                allpname = ""
+                allpname += color1+pname1+size1+"x"+str(quantity1)+","
+            else:
+                allpname += color1+pname1+size1+"x"+str(quantity1)+","
 
         if quantity2 == 0:
             pmoney2 = 0
         else:
             adp2 = addpur.objects.filter(APNAME = pname2, APSIZE = size2, APCOLOR = color2).values()
             pmoney2 = int(adp2[0]['APPRICE'])*quantity2
-            allpname += color2+pname2+size2+"x"+str(quantity2)+","
+            if allpname == "無":
+                allpname = ""
+                allpname += color2+pname2+size2+"x"+str(quantity2)+","
+            else:
+                allpname += color2+pname2+size2+"x"+str(quantity2)+","
 
         if quantity3 == 0:
             pmoney3 = 0
         else:
             adp3 = addpur.objects.filter(APNAME = pname3, APSIZE = size3, APCOLOR = color3).values()
             pmoney3 = int(adp3[0]['APPRICE'])*quantity3
-            allpname += color3+pname3+size3+"x"+str(quantity3)+","
+            if allpname == "無":
+                allpname = ""
+                allpname += color3+pname3+size3+"x"+str(quantity3)+","
+            else:
+                allpname += color3+pname3+size3+"x"+str(quantity3)+","
 
         totalmoney = 50+wmoney+dmoney+fmoney+wtax+dtax+ftax+pmoney1+pmoney2+pmoney3   #消費總金額
         totalpoint = 20+wpoints+dpoints+fpoints   #獲得的點數
@@ -427,6 +431,10 @@ def order_confirmation(request):
         new_dt = loc_dt + time_del 
         datetime_format = new_dt.strftime("%Y-%m-%d %H:%M")   #預計完成的時間
 
+        if give == "外送服務" or collar == "外送服務":
+            userone = member.objects.filter(MEMID = userid).values()
+            address = userone[0]['ADDRESS']
+
 
         datechose = []
         for i in range(1, 13):
@@ -439,7 +447,6 @@ def order_confirmation(request):
         return render(request, 'page/order_confirmation.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def order_sent(request):   #目前app編號和店舖編號都是寫死的
@@ -538,11 +545,11 @@ def order_sent(request):   #目前app編號和店舖編號都是寫死的
         for data in haveorder:
             activate = data['ACTIVATE']
             if activate == "active":
-                firstorder += ""
-            else:
                 firstorder += "yes"
+            else:
+                firstorder += ""
 
-        if firstorder == "yes":
+        if firstorder == "":
             haveorder = hstate.objects.filter(MEMID1 = userid).values()
             firstid = haveorder[0]['ORDID1']
             hstate.objects.filter(MEMID1 = userid, ORDID1 = firstid).update(ACTIVATE = "active")
@@ -576,7 +583,6 @@ def order_sent(request):   #目前app編號和店舖編號都是寫死的
         return render(request, 'page/order_sent.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -615,7 +621,6 @@ def order_tracking(request):
         return render(request, 'page/order_tracking5.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -627,7 +632,6 @@ def map(request):
         return render(request, 'page/map.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -640,7 +644,6 @@ def historical(request):
         return render(request, 'page/historical.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def problemreturns(request):
@@ -651,7 +654,6 @@ def problemreturns(request):
         return render(request, 'page/problemreturns.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def teaching(request):
@@ -662,7 +664,6 @@ def teaching(request):
         return render(request, 'page/teaching.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def finish_confirmation(request):
@@ -674,7 +675,6 @@ def finish_confirmation(request):
         return render(request, 'page/order_payment_confirmation.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def payment_confirmation(request):
@@ -715,12 +715,11 @@ def payment_confirmation(request):
         return render(request, 'page/payment_options.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def sendtoone(request, cdate, point):   #串接段浩恩那組的碳制郎
     userid = request.session['user']
-    requests.post('https://6e36-1-171-118-240.ngrok.io/SA_ALL/news/history/', data = {
+    requests.post('https://2ffa-140-135-113-234.ngrok.io/SA_ALL/news/history/', data = {
         "USER_PHONE": userid,   #userID
         "APP_ID": "第五組智慧喜",   #智慧喜＋之類的
         "DATE": cdate,
@@ -808,20 +807,20 @@ def payment_complete(request):
         for data in haveorder:
             activate = data['ACTIVATE']
             if activate == "active":
-                firstorder += ""
-            else:
                 firstorder += "yes"
+            else:
+                firstorder += ""
 
-        if firstorder == "yes":
+        if firstorder == "":
             haveorder = hstate.objects.filter(MEMID1 = userid).values()
-            firstid = haveorder[0]['ORDID1']
-            hstate.objects.filter(MEMID1 = userid, ORDID1 = firstid).update(ACTIVATE = "active")  
+            if haveorder:
+                firstid = haveorder[0]['ORDID1']
+                hstate.objects.filter(MEMID1 = userid, ORDID1 = firstid).update(ACTIVATE = "active")  
 
         return sendtoone(request, cdate, point)   #串接碳制郎
         # return render(request, 'page/payment_completed.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -844,7 +843,6 @@ def report_sent(request):
         return render(request, 'page/report_success.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def washing_confirmation(request):
@@ -868,7 +866,6 @@ def washing_confirmation(request):
         return render(request, 'page/washing_confirmation.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -886,7 +883,6 @@ def laundry_success(request):
         return render(request, 'page/laundry_success.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -915,7 +911,6 @@ def addnotice(request):
         return HttpResponse("Successfully!!")
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -931,7 +926,6 @@ def purchase2(request):
             return redirect('/purchasefail/', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def purchaseCFM(request):
@@ -1012,7 +1006,6 @@ def purchaseCFM(request):
         return render(request, 'page/purchaseCFM.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def purchasesuccess(request):
@@ -1039,7 +1032,6 @@ def purchasesuccess(request):
         return render(request, 'page/purchase_success.html',locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 def purchasefail(request):
@@ -1050,7 +1042,6 @@ def purchasefail(request):
         return render(request, 'page/purchase_fail.html', locals())
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 
@@ -1073,7 +1064,6 @@ def addpreference(request):
         return HttpResponseRedirect('/index/')
     else:
         print("================================")
-        messages.error(request, '存取權已過期，請重新登入')
         return logout(request)
 
 

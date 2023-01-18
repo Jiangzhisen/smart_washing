@@ -67,7 +67,7 @@ class hstate(models.Model):   #訂單狀態追蹤資料表
     ACTIVATE = models.CharField('activate', max_length=15, default='')
 
 
-class order(models.Model):   #訂單歷史資料表 (19個欄位)
+class order(models.Model):   #訂單歷史資料表
     ORDID = models.CharField('訂單編號', max_length=15, null=False, primary_key=True, default='')
     MEMID = models.CharField('使用者編號', max_length=43, null=False, default='')
     APPID = models.IntegerField('app編號', null=False, default=5)

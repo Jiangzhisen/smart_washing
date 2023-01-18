@@ -189,6 +189,12 @@
                     <td align="center" valign="center">預計完成時間：</td>
                     <td align="center" valign="center">{{ datetime_format }}</td>
                 </tr>
+                {% if address %}
+                <tr>
+                  <td align="center" valign="center">地址：</td>
+                  <td align="center" valign="center">{{ address }}</td>
+                </tr>
+                {% endif %}
             </table>
           </div>
 
@@ -230,13 +236,5 @@
         return new bootstrap.Popover(popoverTriggerEl)
       })
     </script>
-
-    {% if messages %}
-    <script>
-      {% for msg in messages %}
-        alert('{{ msg.message }}');
-      {% endfor %}
-    </script>
-    {% endif %}
 </body>
 </html>
